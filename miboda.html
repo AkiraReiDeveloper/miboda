@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Boda • Brici & Yukie • 25 Octubre 2025</title>
+
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --burnt-sienna: #B8824D;
+            --pecan: #8B4513;
+            --sage: #7A8471;
+            --rose: #B08B82;
+            --silk: #E6D4C4;
+            --cream: #F5F1EC;
+            --ink: #2D2520;
+            --paper: #FEFCF8;
+            --warm: #FAF5F5;
+            --shadow: 0 8px 32px rgba(139, 69, 19, .15);
+            --shadow2: 0 20px 60px rgba(0, 0, 0, .15);
+            --radius: 20px;
+            --grad: linear-gradient(135deg, var(--pecan), var(--burnt-sienna));
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: Inter, system-ui, Arial, sans-serif;
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.7;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Cormorant Garamond", serif;
+            color: var(--pecan);
+            font-weight: 700;
+            letter-spacing: .5px
+        }
+
+        /* ========= ICONOS ANIMADOS SIMPLES ========= */
+        .icon-fade {
+            animation: simpleFade 3s ease-in-out infinite alternate;
+        }
+
+        .icon-float {
+            animation: simpleFloat 2.5s ease-in-out infinite;
+        }
+
+        .icon-glow {
+            animation: simpleGlow 2s ease-in-out infinite alternate;
+        }
+
+        .icon-pulse {
+            animation: simplePulse 2s ease-in-out infinite;
+        }
+
+        /* Animaciones simples y suaves */
+        @keyframes simpleFade {
+            0% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes simpleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes simpleGlow {
+            0% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes simplePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* ========= LOGIN SOBRE PORTADA ========= */
+        .cover {
+            position: fixed;
+            inset: 0;
+            z-index: 20;
+            background: url("./img/Copia de Y&B pre-51.jpg") center/cover no-repeat;
+        }
+
+        .cover::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, .25), rgba(0, 0, 0, .35));
+        }
+
+        .gate {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .gate-card {
+            width: min(640px, 92vw);
+            background: rgba(254, 252, 248, .55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(230, 212, 196, .6);
+            box-shadow: var(--shadow2);
+            border-radius: 24px;
+            padding: 28px 24px;
+            text-align: center;
+            animation: cardIn .8s ease both;
+        }
+
+        .gate h3 {
+            color: #2D2520;
+            font-weight: 700;
+            font-size: clamp(18px, 3.8vw, 24px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px
+        }
+
+        .gate p {
+            opacity: .9;
+            margin-bottom: 18px
+        }
+
+        .gate input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 2px solid var(--silk);
+            background: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: .25s;
+            text-align: center;
+            animation: fadeUp .6s .15s both;
+        }
+
+        .gate input:focus {
+            border-color: var(--burnt-sienna)
+        }
+
+        .gate .btn {
+            margin-top: 14px;
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            background: var(--grad);
+            box-shadow: var(--shadow);
+            transition: transform .2s;
+            animation: fadeUp .6s .25s both;
+        }
+
+        .gate .btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .gate .err {
+            display: none;
+            color: #b00020;
+            margin-top: 8px;
+            font-weight: 600
+        }
+
+        .gate .mini {
+            margin-top: 14px;
+            font-size: .95rem;
+            background: rgba(230, 212, 196, .6);
+            padding: 14px;
+            border-radius: 12px;
+            display: none
+        }
+
+        /* ========= CONTENIDO ========= */
+        .page {
+            display: none
+        }
+
+        .show {
+            display: block;
+            animation: fade .6s ease both
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(.98)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        /* HERO LIMPIO */
+        .hero {
+            padding: 96px 20px 48px;
+            background: var(--warm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        /* === LOGO VERTICAL CON ROTACIÓN SUAVE === */
+        .signature {
+            width: 30%;
+            height: auto;
+            opacity: .95;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            animation: logoSway 7s ease-in-out infinite alternate, appear .7s ease both;
+            will-change: transform;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: rotate(-90deg) translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: rotate(-90deg) translateY(0)
+            }
+        }
+
+        @keyframes logoSway {
+            0% {
+                transform: rotate(-90deg) rotate(-3deg);
+            }
+
+            100% {
+                transform: rotate(-90deg) rotate(3deg);
+            }
+        }
+
+        .scroll-indicator {
+            font-size: 22px;
+            margin-top: 6px;
+            animation: bounce 1.6s infinite
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: .8
+            }
+
+            50% {
+                transform: translateY(6px);
+                opacity: 1
+            }
+        }
+
+        /* BANDA FRASE */
+        .band {
+            background: var(--silk);
+            color: var(--pecan);
+            padding: 18px 20px;
+            text-align: center;
+            font-weight: 600
+        }
+
+        /* COUNTDOWN + CTA */
+        .count-wrap {
+            padding: 40px 20px 20px;
+            text-align: center
+        }
+
+        .count-title {
+            color: #7b6a60;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .count-date {
+            font-size: clamp(26px, 5.5vw, 38px);
+            margin-bottom: 16px
+        }
+
+        .count-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(70px, 1fr));
+            gap: 12px;
+            max-width: 560px;
+            margin: 0 auto 18px;
+        }
+
+        .tbox {
+            background: var(--grad);
+            color: #fff;
+            border-radius: 16px;
+            padding: 18px 8px;
+            box-shadow: var(--shadow);
+            transform: translateY(12px);
+            opacity: 0
+        }
+
+        .tbox b {
+            display: block;
+            font-size: clamp(18px, 5vw, 28px);
+            line-height: 1
+        }
+
+        .tbox span {
+            opacity: .9;
+            font-weight: 600
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 24px;
+            background: var(--silk);
+            color: var(--ink);
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid rgba(139, 69, 19, .25)
+        }
+
+        /* TARJETAS EVENTO */
+        .events {
+            padding: 40px 20px;
+            background: var(--cream)
+        }
+
+        .event-card {
+            background: var(--warm);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 28px;
+            text-align: center;
+            max-width: 680px;
+            margin: 18px auto;
+            border-top: 5px solid var(--burnt-sienna);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .event-card .ico {
+            font-size: 42px;
+            color: #6d6a66;
+            margin-bottom: 8px
+        }
+
+        .event-card h3 {
+            font-size: 28px;
+            margin-bottom: 8px
+        }
+
+        .event-card p {
+            margin-bottom: 16px
+        }
+
+        .event-card .link {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: 700;
+            color: #fff;
+            background: var(--grad)
+        }
+
+        /* ========= GALERÍA INFINITA UNIFICADA ========= */
+        .gallery-section {
+            padding: 56px 0 40px;
+            background: var(--warm);
+            text-align: center;
+            overflow: hidden
+        }
+
+        .gallery-section h3 {
+            font-size: clamp(28px, 4vw, 36px);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(20px)
+        }
+
+        .infinite-gallery {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            height: 100%;
+            animation: scrollGallery 40s linear infinite;
+            width: max-content;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Animación infinita */
+        @keyframes scrollGallery {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-280px * 5 - 100px));
+            }
+        }
+
+        /* Pausa la animación al hacer hover */
+        .infinite-gallery:hover .gallery-track {
+            animation-play-state: paused;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: 240px;
+                height: 240px;
+            }
+
+            @keyframes scrollGallery {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(calc(-240px * 5 - 100px));
+                }
+            }
+        }
+
+        /* ==== Dresscode (se conserva) ==== */
+        .dresscode-section {
+            padding: 80px 20px;
+            background: var(--silk);
+            text-align: center
+        }
+
+        .dresscode-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--warm);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow)
+        }
+
+        .dresscode-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover
+        }
+
+        .dresscode-text {
+            padding: 30px;
+            font-size: 18px;
+            color: var(--pecan);
+            font-weight: 500
+        }
+
+        /* SOLO ADULTOS */
+        .nokids {
+            padding: 54px 20px;
+            background: #f0efe9;
+            text-align: center
+        }
+
+        .nokids h3 {
+            margin-bottom: 8px
+        }
+
+        /* SECCIÓN DE REGALOS */
+        .gifts {
+            padding: 54px 20px;
+            background: var(--cream);
+            text-align: center
+        }
+
+        .gift-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gift-card {
+            background: var(--warm);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .bank-details {
+            display: none;
+            margin-top: 16px;
+            padding: 16px;
+            background: rgba(230, 212, 196, 0.3);
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .bank-details p {
+            margin-bottom: 8px;
+        }
+
+        /* CONFIRMAR & PLAYLIST */
+        .rsvp {
+            padding: 54px 20px;
+            text-align: center;
+            background: var(--warm);
+        }
+
+        .stack {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 22px;
+            border-radius: 28px;
+            background: var(--grad);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+            transform: translateY(12px);
+            opacity: 0
+        }
+
+        .cta.no {
+            background: var(--silk);
+            color: var(--ink);
+        }
+
+        /* FOTO FINAL HORIZONTAL */
+        .final {
+            padding: 54px 20px;
+            background: var(--silk);
+            text-align: center
+        }
+
+        .final .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow)
+        }
+
+        .final img {
+            width: 100%;
+            height: clamp(240px, 44vw, 440px);
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform .6s ease
+        }
+
+        .final img:hover {
+            transform: scale(1.05)
+        }
+
+        /* util: clase que se activa al revelar */
+        .reveal {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: fadeUp .7s ease both
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======== COVER + LOGIN ======== -->
+    <section class="cover" id="cover">
+        <div class="gate">
+            <div class="gate-card">
+                <h3>
+                    <i class="fas fa-heart icon-pulse" style="color: var(--rose); margin-right: 8px;"></i>
+                    ¡Nos encantaría que seas parte de este día tan especial!
+                    <i class="fas fa-heart icon-pulse" style="color: var(--rose); margin-left: 8px;"></i>
+                </h3>
+                <p>Ingresá tu código para continuar:</p>
+                <input id="sessionCode" type="text" placeholder="Ej. BR001" />
+                <button class="btn" onclick="validateCode()">
+                    <i class="fas fa-envelope-open icon-fade" style="margin-right: 8px;"></i>
+                    VER INVITACIÓN
+                </button>
+                <div id="errorMessage" class="err">Código incorrecto. Intenta de nuevo.</div>
+                <div id="guestInfo" class="mini">
+                    <b>Invitado(s):</b> <span id="gNames"></span><br>
+                    <b>Adultos:</b> <span id="gAdults"></span> <span id="gKidsWrap" style="display:none"> •
+                        <b>Niños:</b> <span id="gKids"></span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== CONTENIDO ======== -->
+    <main id="page" class="page">
+        <!-- HERO -->
+        <section class="hero">
+            <!-- IMAGEN PRINCIPAL -->
+            <img src="./img/Inicio.jpg" alt="Brici & Yukie" class="hero-image">
+            
+            <!-- LOGO VERTICAL CON ANIMACIÓN -->
+            <img class="signature" src="./img/Logo beige.png" alt="Firma / Logo" width="100px">
+            
+            <h1 class="section-title" style="letter-spacing:2px;">
+                <i class="fas fa-ring icon-float" style="color: var(--pecan); margin-right: 12px;"></i>
+                NUESTRA BODA
+                <i class="fas fa-ring icon-float" style="color: var(--pecan); margin-left: 12px;"></i>
+            </h1>
+            <div class="scroll-indicator">⌄</div>
+        </section>
+
+        <!-- FRASE DE BIENVENIDA -->
+        <div class="band">
+            <i class="fas fa-quote-left icon-glow" style="color: var(--pecan); margin-right: 8px;"></i>
+            Nos encantaría que seas parte de este momento tan especial para nosotros.
+            <i class="fas fa-quote-right icon-glow" style="color: var(--pecan); margin-left: 8px;"></i>
+        </div>
+
+        <!-- COUNTDOWN -->
+        <section class="count-wrap">
+            <div class="count-title">
+                <i class="fas fa-calendar-alt icon-fade" style="color: var(--burnt-sienna); margin-right: 8px;"></i>
+                Te esperamos el día
+            </div>
+            <div class="count-date">
+                <i class="fas fa-heart icon-pulse" style="color: var(--rose); margin-right: 12px;"></i>
+                25 de Octubre • 2025
+                <i class="fas fa-heart icon-pulse" style="color: var(--rose); margin-left: 12px;"></i>
+            </div>
+            <div class="count-grid">
+                <div class="tbox watch"><b id="d">--</b><span>Días</span></div>
+                <div class="tbox watch"><b id="h">--</b><span>Hs</span></div>
+                <div class="tbox watch"><b id="m">--</b><span>Min</span></div>
+                <div class="tbox watch"><b id="s">--</b><span>Seg</span></div>
+            </div>
+            <a id="addCal" class="btn-ghost" href="#">
+                <i class="fas fa-calendar-plus icon-float" style="margin-right: 8px;"></i>
+                AGENDAR FECHA
+            </a>
+        </section>
+
+        <!-- EVENTOS -->
+        <section class="events">
+            <div class="event-card watch">
+                <div class="ico">
+                    <i class="fa-solid fa-church icon-glow" style="color: #6d6a66;"></i>
+                </div>
+                <h3>
+                    <i class="fas fa-cross icon-fade" style="margin-right: 8px;"></i>
+                    CEREMONIA
+                </h3>
+                <p>18:00 hrs, Parroquia de la Sagrada Familia</p>
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/9nLZRwMSknXiy9wu6">
+                    <i class="fas fa-map-marker-alt icon-float" style="margin-right: 8px;"></i>
+                    CÓMO LLEGAR
+                </a>
+            </div>
+            <div class="event-card watch">
+                <div class="ico">
+                    <i class="fa-solid fa-champagne-glasses icon-pulse" style="color: #6d6a66;"></i>
+                </div>
+                <h3>
+                    <i class="fas fa-glass-cheers icon-glow" style="margin-right: 8px;"></i>
+                    CELEBRACIÓN
+                </h3>
+                <p>20:00 hrs, Salón Hacienda Paraíso</p>
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/fVrssnnnnZarSqxs8">
+                    <i class="fas fa-map-marker-alt icon-float" style="margin-right: 8px;"></i>
+                    CÓMO LLEGAR
+                </a>
+            </div>
+        </section>
+
+        <!-- GALERÍA UNIFICADA CON MOVIMIENTO INFINITO -->
+        <section class="gallery-section" id="galeria">
+            <h3 class="section-title watch">
+                <i class="fas fa-camera icon-fade" style="color: var(--burnt-sienna); margin-right: 12px;"></i>
+                Nuestra historia en imágenes
+                <i class="fas fa-images icon-glow" style="color: var(--pecan); margin-left: 12px;"></i>
+            </h3>
+            <div class="infinite-gallery">
+                <div class="gallery-track">
+                    <!-- Imágenes originales -->
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-42.jpg" alt="Nuestra historia 1"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-36.jpg" alt="Nuestra historia 2"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-9.jpg" alt="Nuestra historia 3"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-49.jpg" alt="Nuestra historia 4"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-35.jpg" alt="Galería 1"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-43.jpg" alt="Galería 2"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-46.jpg" alt="Galería 3"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-48.jpg" alt="Galería 4"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-5.jpg" alt="Galería 5"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-51.jpg" alt="Galería 6"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-53.jpg" alt="Galería 6"></div>
+                    <!-- Duplicamos las imágenes para crear el efecto infinito -->
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-42.jpg" alt="Nuestra historia 1"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-36.jpg" alt="Nuestra historia 2"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-9.jpg" alt="Nuestra historia 3"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-49.jpg" alt="Nuestra historia 4"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-35.jpg" alt="Galería 1"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-43.jpg" alt="Galería 2"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-46.jpg" alt="Galería 3"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-48.jpg" alt="Galería 4"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-5.jpg" alt="Galería 5"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-51.jpg" alt="Galería 6"></div>
+                    <div class="gallery-item"><img src="./img/Copia de Y&B pre-53.jpg" alt="Galería 6"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DRESSCODE -->
+        <section class="dresscode-section">
+            <h3 style="font-size:36px; margin-bottom:40px; color:var(--pecan);">
+                <i class="fas fa-tshirt icon-fade" style="margin-right: 12px;"></i>
+                Código de Vestimenta
+                <i class="fas fa-user-tie icon-glow" style="margin-left: 12px;"></i>
+            </h3>
+            <div class="dresscode-card">
+                <img src="./img/Dresscode.png" alt="Dresscode" class="dresscode-image">
+                <div class="dresscode-text">
+                    <strong>
+                        <i class="fas fa-star icon-pulse" style="margin-right: 8px;"></i>
+                        Vestimenta Formal
+                        <i class="fas fa-star icon-pulse" style="margin-left: 8px;"></i>
+                    </strong><br>
+                    Traje para caballeros • Vestido elegante para damas
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLO ADULTOS -->
+        <section class="nokids">
+            <h3>
+                <i class="fas fa-wine-glass icon-glow" style="color: var(--rose); margin-right: 8px;"></i>
+                ¡La fiesta está en marcha!
+                <i class="fas fa-cocktail icon-pulse" style="color: var(--burnt-sienna); margin-left: 8px;"></i>
+            </h3>
+            <p>Deja a los peques en casa y trae tus mejores pasos de baile. Nuestra boda será solo para adultos.</p>
+        </section>
+
+        <!-- REGALOS -->
+        <section class="gifts">
+            <h3 class="section-title">
+                <i class="fas fa-gift icon-pulse" style="color: var(--rose); margin-right: 8px;"></i>
+                Mesa de Regalos
+                <i class="fas fa-heart icon-fade" style="color: var(--pecan); margin-left: 8px;"></i>
+            </h3>
+            <p>Si deseas hacernos un regalo además de tu presencia</p>
+            
+            <div class="gift-options">
+                <div class="gift-card">
+                    <a class="link" target="_blank" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51616073">
+                        <i class="fas fa-store icon-float" style="margin-right: 8px;"></i>
+                        Liverpool
+                    </a>
+                </div>
+                
+                <div class="gift-card">
+                    <a href="#" class="link" onclick="toggleBankDetails(event)">
+                        <i class="fas fa-university icon-float" style="margin-right: 8px;"></i>
+                        Datos Bancarios
+                    </a>
+                    <div id="bankDetails" class="bank-details">
+                        <p><strong>Nombre:</strong> Yukie Abigail Aguirre Corona</p>
+                        <p><strong>CLABE:</strong> 638180010154691689</p>
+                        <p><strong>Banco:</strong> Nu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONFIRMACIÓN + PLAYLIST -->
+        <section class="rsvp">
+            <h3 class="section-title">
+                <i class="fas fa-heart icon-pulse" style="color: var(--rose); margin-right: 8px;"></i>
+                ¿Nos acompañas?
+                <i class="fas fa-users icon-fade" style="color: var(--pecan); margin-left: 8px;"></i>
+            </h3>
+            <p class="muted">
+                <i class="fas fa-clock icon-float" style="margin-right: 8px;"></i>
+                Tu confirmación es importante antes del 20 de septiembre
+            </p>
+            <div class="stack" style="margin-top:12px">
+                <a id="confirmYes" class="cta watch" href="#">
+                    <i class="fab fa-whatsapp icon-glow"></i>
+                    ¡Sí confirmo!
+                </a>
+                <a id="confirmNo" class="cta watch no" href="#">
+                    <i class="fab fa-whatsapp icon-glow"></i>
+                    No podré asistir
+                </a>
+                <a class="cta watch" target="_blank" href="https://forms.gle/">
+                    <i class="fas fa-music icon-float"></i>
+                    Sugerir canción
+                </a>
+            </div>
+        </section>
+
+        <!-- FOTO FINAL -->
+        <section class="final">
+            <div class="wrap">
+                <img src="./img/Final.jpg" alt="Foto final">
+            </div>
+        </section>
+    </main>
+
+    <!-- ======== JS ======== -->
+    <script>
+        /* ====== INVITADOS ====== */
+        const guestData = {
+            "BR001": { names: "Abelardo Barragan / Rosario Figueroa", count: 2, children: 0 },
+            "BR002": { names: "Alberto Mendez / Arlin Becerra / E. Alberto Mendez / Max Mendez", count: 3, children: 1 },
+            "BR003": { names: "Alejandrina Aguirre / David Guerrero / Hector Guerrero / Josue Guerrero", count: 4, children: 0 },
+            "BR004": { names: "Alejandro Briseño", count: 1, children: 0 },
+            "BR005": { names: "Alejandro Guerrero / Katia Lopez", count: 2, children: 0 },
+            "BR006": { names: "Alex Moreno / Mizuna Castro", count: 2, children: 0 },
+            "BR007": { names: "Alondra Mendez / Paola Rodriguez", count: 2, children: 0 },
+            "BR008": { names: "Amador Mendez", count: 1, children: 0 },
+            "BR009": { names: "Ana Cienfuegos", count: 1, children: 0 },
+            "BR010": { names: "Anali Briseño", count: 1, children: 0 },
+            "BR011": { names: "Andrea Aguirre / José Velazquez / Dylan Velazquez", count: 2, children: 1 },
+            "BR012": { names: "Andres Aguirre / Gabriela Corona", count: 2, children: 0 },
+            "BR013": { names: "Aracely Corona / Bernardo Ibarra / Ara Ibarra / Ber Ibarra", count: 4, children: 0 },
+            "BR014": { names: "Athenea Corona / Xavier Calderon", count: 2, children: 0 },
+            "BR015": { names: "Axel Briseño / Ana Carolina", count: 2, children: 0 },
+            "BR016": { names: "Azucena Parente", count: 1, children: 0 },
+            "BR017": { names: "Carlos Diaz", count: 1, children: 0 },
+            "BR018": { names: "Coral Sanchez / Daniel Castañeda", count: 2, children: 0 },
+            "BR019": { names: "Dalia Dominguez", count: 1, children: 0 },
+            "BR020": { names: "Dulce Gutierrez", count: 1, children: 0 },
+            "BR021": { names: "Edgar Moreno", count: 1, children: 0 },
+            "BR022": { names: "Edmundo Aguirre / Sonia Valenzuela / Elias Aguirre / Daniel Aguirre", count: 4, children: 0 },
+            "BR023": { names: "Edna Flores", count: 1, children: 0 },
+            "BR024": { names: "Edwin Calderon", count: 1, children: 0 },
+            "BR025": { names: "Edwin Valenzuela", count: 1, children: 0 },
+            "BR026": { names: "Elisa Leon", count: 1, children: 0 },
+            "BR027": { names: "Estela Ricardo Ricardito Adrian", count: 3, children: 1 },
+            "BR028": { names: "Fernando Ruiz", count: 1, children: 0 },
+            "BR029": { names: "Gabriel Aguirre / Orlando", count: 2, children: 0 },
+            "BR030": { names: "Gabriel Torres", count: 1, children: 0 },
+            "BR031": { names: "Griselda Rodriguez / Rodolfo Dominguez", count: 2, children: 0 },
+            "BR032": { names: "Guadalupe Ramirez", count: 1, children: 0 },
+            "BR033": { names: "Iris Cornejo", count: 1, children: 0 },
+            "BR034": { names: "Ismael Chiquete", count: 1, children: 0 },
+            "BR035": { names: "Ivan Moreno", count: 1, children: 0 },
+            "BR036": { names: "Jaudiel Barragan / Cinthia", count: 2, children: 0 },
+            "BR037": { names: "Jazmin Coronado", count: 1, children: 0 },
+            "BR038": { names: "Jessica Gil / Edwin Nevarez", count: 2, children: 0 },
+            "BR039": { names: "Jorge Aguirre / Claudia Urias / Priscilla Aguirre / Jorge Aguirre Jr", count: 4, children: 0 },
+            "BR040": { names: "Kevin Viera / Liz Ibarra", count: 2, children: 0 },
+            "BR041": { names: "Kristian Lopez / Esposa", count: 2, children: 0 },
+            "BR042": { names: "Larissa Aguirre / Melki Llanes", count: 2, children: 0 },
+            "BR043": { names: "Leslye Tirado / Isaac Bastida", count: 2, children: 0 },
+            "BR044": { names: "Letty Lara / Freddy Bernal / Dafne Bernal / Alisson Bernal", count: 4, children: 0 },
+            "BR045": { names: "Lizbeth Corona", count: 1, children: 0 },
+            "BR046": { names: "Lizeth Corona", count: 1, children: 0 },
+            "BR047": { names: "Lizeth Sarabia / Martín / Mariliz", count: 2, children: 1 },
+            "BR048": { names: "Lorena Escobar / Martin Aguirre", count: 2, children: 0 },
+            "BR049": { names: "Lorenia Barragan / Feliciano Figueroa / Valeria Figueroa / Luz Figueroa / Camila Figueroa", count: 5, children: 0 },
+            "BR050": { names: "Lucia Osuna", count: 1, children: 0 },
+            "BR051": { names: "Luis Ascarate / Esposa", count: 2, children: 0 },
+            "BR052": { names: "Majo Lerma", count: 1, children: 0 },
+            "BR053": { names: "Manuel Corona", count: 1, children: 0 },
+            "BR054": { names: "Maria Aguilar", count: 1, children: 0 },
+            "BR055": { names: "Maritza Sarabia", count: 1, children: 0 },
+            "BR056": { names: "Martha Aguirre / Felipe Flores / Felipe Flores Jr", count: 3, children: 0 },
+            "BR057": { names: "Marylu Acosta / Valeria Corona / Manuel Corona / Mateo Corona", count: 3, children: 1 },
+            "BR058": { names: "Mayela Vidrio", count: 1, children: 0 },
+            "BR059": { names: "Missael Mendez", count: 1, children: 0 },
+            "BR060": { names: "Natanael Rangel / Alexia Oropeza", count: 2, children: 0 },
+            "BR061": { names: "Nayeli Sanchez / Edmundo Gonzalez", count: 2, children: 0 },
+            "BR062": { names: "Neyzer Garcia", count: 1, children: 0 },
+            "BR063": { names: "Noe Roque", count: 1, children: 0 },
+            "BR064": { names: "Nohemi Tirado / Guztavo Chaidez", count: 2, children: 0 },
+            "BR065": { names: "Nora Sanchez / Carlos Lara / Karla Lara / Katia Lara / Karol Lara", count: 5, children: 0 },
+            "BR066": { names: "Norma Lara / Victor Rodriguez", count: 2, children: 0 },
+            "BR067": { names: "Nubia Barragan", count: 1, children: 0 },
+            "BR068": { names: "Oliver Villaseñor", count: 1, children: 0 },
+            "BR069": { names: "Omar Vega / Pareja", count: 2, children: 0 },
+            "BR070": { names: "P. Alberto Corona / Wendy Yañez / Sergio Corona", count: 3, children: 0 },
+            "BR071": { names: "Penny Vega / Carlos Garcia", count: 2, children: 0 },
+            "BR072": { names: "Priscilla Mendez", count: 1, children: 0 },
+            "BR073": { names: "Rafael Lara / Laura Gonzalez", count: 2, children: 0 },
+            "BR074": { names: "Rosa Lara / Alberto Corona", count: 2, children: 0 },
+            "BR075": { names: "Rosy Ramirez / Jesus Taboada", count: 2, children: 0 },
+            "BR076": { names: "Sandra Diaz / Karolina Cardenas", count: 2, children: 0 },
+            "BR077": { names: "Socorro Diaz", count: 1, children: 0 },
+            "BR078": { names: "Stephanie Bernal / Novio", count: 2, children: 0 },
+            "BR079": { names: "Thania Graciano", count: 1, children: 0 },
+            "BR080": { names: "Vanessa Rodriguez / Lia Valenzuela", count: 1, children: 1 },
+            "BR081": { names: "Vianey Diaz", count: 1, children: 0 },
+            "BR082": { names: "Victor Reyes / Armando Mendoza", count: 2, children: 0 },
+            "BR083": { names: "Xitlali Flores / Junior Aguirre", count: 2, children: 0 },
+            "BR084": { names: "Yanitzi Castellano", count: 1, children: 0 },
+            "BR085": { names: "Yolanda Ibarra / Cesar Sandoval", count: 2, children: 0 },
+            "BR086": { names: "Zulema Lara", count: 1, children: 0 }
+        };
+
+        let currentGuest = null;
+
+        function validateCode() {
+            const code = document.getElementById('sessionCode').value.trim().toUpperCase();
+            const err = document.getElementById('errorMessage');
+            const mini = document.getElementById('guestInfo');
+            if (guestData[code]) {
+                currentGuest = guestData[code];
+                document.getElementById('gNames').textContent = currentGuest.names;
+                document.getElementById('gAdults').textContent = currentGuest.count;
+                if (currentGuest.children > 0) {
+                    document.getElementById('gKids').textContent = currentGuest.children;
+                    document.getElementById('gKidsWrap').style.display = 'inline';
+                } else document.getElementById('gKidsWrap').style.display = 'none';
+
+                mini.style.display = 'block'; err.style.display = 'none';
+
+                const msgYes = `¡Hola! Confirmamos nuestra asistencia a su boda: ${currentGuest.names} - ${currentGuest.count} adultos${currentGuest.children > 0 ? ' y ' + currentGuest.children + ' niño(s)' : ''}`;
+                document.getElementById('confirmYes').href = `https://wa.me/526692141006?text=${encodeURIComponent(msgYes)}`;
+                
+                const msgNo = `Lamentamos informar que no podremos acompañarlos en su boda: ${currentGuest.names}`;
+                document.getElementById('confirmNo').href = `https://wa.me/526692141006?text=${encodeURIComponent(msgNo)}`;
+
+                setTimeout(() => {
+                    document.getElementById('cover').style.display = 'none';
+                    document.getElementById('page').classList.add('show');
+                    startCountdown();
+                    runReveal();
+                }, 900);
+            } else {
+                err.style.display = 'block'; mini.style.display = 'none';
+                const el = document.getElementById('sessionCode');
+                el.style.animation = 'shake .4s'; setTimeout(() => el.style.animation = '', 400);
+            }
+        }
+        document.getElementById('sessionCode').addEventListener('keypress', e => { if (e.key === 'Enter') validateCode(); });
+        (() => {
+            const st = document.createElement('style'); st.textContent = `@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}`; document.head.appendChild(st);
+        })();
+
+        /* ====== MOSTRAR DATOS BANCARIOS ====== */
+        function toggleBankDetails(event) {
+            event.preventDefault();
+            const bankDetails = document.getElementById('bankDetails');
+            bankDetails.style.display = bankDetails.style.display === 'block' ? 'none' : 'block';
+        }
+
+        /* ====== COUNTDOWN (con segundos) + .ics ====== */
+        function startCountdown() {
+            const target = new Date('2025-10-25T18:00:00');
+            const d = document.getElementById('d'), h = document.getElementById('h'), m = document.getElementById('m'), s = document.getElementById('s');
+            function tick() {
+                const now = new Date(), diff = target - now;
+                if (diff <= 0) { d.textContent = h.textContent = m.textContent = s.textContent = '0'; return; }
+                const dd = Math.floor(diff / 86400000);
+                const hh = Math.floor((diff % 86400000) / 3600000);
+                const mm = Math.floor((diff % 3600000) / 60000);
+                const ss = Math.floor((diff % 60000) / 1000);
+                d.textContent = dd; h.textContent = hh.toString().padStart(2, '0'); m.textContent = mm.toString().padStart(2, '0'); s.textContent = ss.toString().padStart(2, '0');
+            }
+            tick(); setInterval(tick, 1000);
+            const ics = [
+                "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Boda Brici & Yukie//ES", "BEGIN:VEVENT",
+                "DTSTART:20251025T180000", "DTEND:20251025T235900", "SUMMARY:Boda • Brici & Yukie",
+                "LOCATION:Parroquia de la Sagrada Familia y Hacienda Paraíso", "DESCRIPTION:¡Acompáñanos en nuestro gran día!",
+                "END:VEVENT", "END:VCALENDAR"
+            ].join("\\n");
+            const href = "data:text/calendar;charset=utf8," + encodeURIComponent(ics);
+            const add = document.getElementById('addCal');
+            add.href = href; add.download = "Boda_Brici_Yukie.ics";
+        }
+
+        /* ====== ANIMACIONES AL HACER SCROLL ====== */
+        function runReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('reveal');
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: .15 });
+
+            document.querySelectorAll('.watch').forEach(el => observer.observe(el));
+        }
+    </script>
+</body>
+
+</html>
